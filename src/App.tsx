@@ -1,3 +1,34 @@
+import React from 'react';
+import './App.css';
+
+function App() {
+
+
+    return (
+
+            <form
+                action="http://localhost:3010/image"
+                  encType="multipart/form-data"
+                  method="POST">
+                <input
+                    type="text"
+                    name="Имя и Фамилия"/>
+                <input
+                    type="file"
+                    name="imageimage"
+                    required/>
+                <button>ЗАПРОС НА БЭК</button>
+            </form>
+
+
+
+    );
+}
+
+export default App;
+
+
+/*
 import React, {useState} from 'react';
 import './App.css';
 import axios from "axios";
@@ -34,4 +65,5 @@ function App() {
 export default App;
 
 
+*/
 
