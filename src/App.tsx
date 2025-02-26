@@ -19,7 +19,7 @@ function App() {
                     type="file"
                     name="imageimage"
                     required/>
-                <button>ЗАПРОС НА БЭК</button>
+                <button>ПОМЕСТИТЬ В ФАЙЛОВУЮ СИСТЕМУ</button>
 
             </form>
 
@@ -37,7 +37,7 @@ function App() {
                     name="Имя и Фамилия"/>
                 <input
                     type="file"
-                    name="yandex"
+                    name="yandexyandex"
                     required/>
                 <button>ПОМЕСТИТЬ В ЯНДЕКС ОБЛАКО</button>
 
