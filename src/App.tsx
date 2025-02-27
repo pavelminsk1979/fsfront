@@ -9,8 +9,13 @@ function App() {
         <>
 
             <form
-                action="http://localhost:3010/image"
-                encType="multipart/form-data"
+                action="http://localhost:3010/image" //url бэкенда
+                encType="multipart/form-data"          // определяет, как данные будут закодированы
+                                                      // перед отправкой
+                /*multipart/form-data:  Это значение используется, когда
+            форма содержит файлы (например, при загрузке изображений
+            Оно позволяет передавать как текстовые данные
+            (например, имя), так и бинарные данные - например, файлы*/
                 method="POST">
                 <input
                     type="text"
