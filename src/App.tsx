@@ -18,7 +18,7 @@ function App() {
 
         try {
             await axios.post('http://localhost:3010/yandexbigfile', formData);
-            console.log(`Часть ${chunkIndex} из ${totalChunks} успешно загружена!!!!!!!!`);
+            console.log(`Часть ${chunkIndex} из ${totalChunks} успешно загружена!`);
         } catch (e) {
             console.log('Ошибка загрузки части', e);
         }
@@ -30,7 +30,7 @@ function App() {
             return;
         }
 
-        const chunkSize = 6 * 1024 * 1024; // 6 МБ
+        const chunkSize = 6 * 1024 * 1024; // 6 МБ была ошибка на бэке если чась менее 5 мб
         const totalChunks = Math.ceil(file.size / chunkSize);
 
         for (let i = 0; i < totalChunks; i++) {
@@ -40,7 +40,7 @@ function App() {
             await uploadChunk(chunk, i + 1, totalChunks);
         }
 
-        console.log('Все части успешно загружены!XXXXXXXXXXXXXXXXXX!!!!!');
+        console.log('Все части успешно загружены!');
     };
 
     return (
