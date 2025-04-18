@@ -1,12 +1,17 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
 import {OptionWithChankes} from "./options/OptionWithChankes";
+import {OptionSimple} from "./options/OptionSimple";
 
 function App() {
-    return(
+    return (
         <>
+            <OptionSimple/>
+            <div>ТУТ БУДЕТ ВАРИАНТ ЗАГРУЗКИ КАРТИНОК</div>
+            <div>И НА БЭКЕ ЭТО РАБОТА СО СТРИМАМИ</div>
             <div>=========================</div>
             <OptionWithChankes/>
+            <div>это тренировал загружать большие видосы чанками</div>
         </>
     )
 
