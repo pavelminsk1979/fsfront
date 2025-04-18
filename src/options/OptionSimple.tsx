@@ -18,7 +18,7 @@ export const OptionSimple = () => {
         formData.append('file', file);
 
         try {
-            await axios.post('http://localhost:3010/yandexbigfile', formData);
+            await axios.post('http://localhost:3010/stream', formData);
             console.log('Файл успешно загружен!');
         } catch (e) {
             console.log('Ошибка загрузки файла', e);
