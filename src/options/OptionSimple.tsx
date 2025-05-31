@@ -29,7 +29,7 @@ export const OptionSimple = () => {
 
 
         try {
-            const res = await axios.post('http://localhost:3010/stream', formData,
+            const res = await axios.post('http://localhost:3010/manyfiles', formData,
                 {
                     headers: {
                         'Content-Type': 'multipart/form-data'
