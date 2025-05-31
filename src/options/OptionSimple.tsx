@@ -2,29 +2,39 @@ import React, {useState} from "react";
 import axios from "axios";
 
 export const OptionSimple = () => {
-    const [file, setFile] = useState<File | null>(null);
+    const [files, setFiles] = useState<FileList | null>(null);
 
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        console.log('ФАЙЛ ПОПАДАЕТ В USESTATE')
-        setFile(event.target.files?.[0] || null);
-    };
 
+        if (event.target.files) {
+            console.log('ФАЙЛ ПОПАДАЕТ В USESTATE')
+            setFiles(event.target.files);
+        }
+    };
+    console.log('files', files)
     const handleOnClick = async () => {
-        console.log('ИДЕТ ОТПРАВКА НА БЭК ФАЙЛА. ФАЙЛ ПРИСУТСТВУЕТ?', file)
-        if (!file) {
+        console.log('ИДЕТ ОТПРАВКА НА БЭК ФАЙЛА. ФАЙЛ ПРИСУТСТВУЕТ?', files)
+        if (!files || files.length === 0) {
             console.log('Файл не выбран!');
             return;
         }
 
         const formData = new FormData();
-        // 'streamstream'  это как ключь :
-        //  file   это значение, это сама картинка
-        // так можно заполнять передаваемый на бэк обьект  formData
-        formData.append('streamstream', file);
-        formData.append('deskription', 'text,text,text');
+
+        // Добавляем каждый файл в formData
+        Array.from(files).forEach((file) => {
+            formData.append('files', file);
+            formData.append('deskription', 'text,text,text');
+        });
+
 
         try {
-            const res = await axios.post('http://localhost:3010/stream', formData);
+            const res = await axios.post('http://localhost:3010/stream', formData,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
             console.log('Файл успешно загружен!');
             console.log('УРЛ АДРЕС КАРТИНКИ', res)
         } catch (e) {
@@ -34,8 +44,11 @@ export const OptionSimple = () => {
 
     return (
         <>
-            <input type="file" onChange={handleFileChange}/>
-            <button onClick={handleOnClick}>Загрузить файл</button>
+            <h3> ВЫБРАТЬ МОЖНО МНОГО файлОВ (до 10 штук по ТЗ ---при выборе файлов надо
+                удерживать клавишу Ctrl )</h3>
+            <input type="file" multiple onChange={handleFileChange}/>
+            <button onClick={handleOnClick}>ОТПРАВИТЬ ВЫБРАНЫЕ ФАЙЛЫ НА БЭКЕНД
+            </button>
         </>
     );
 };
