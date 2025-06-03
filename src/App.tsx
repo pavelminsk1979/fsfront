@@ -2,12 +2,17 @@ import React from 'react';
 import './App.css';
 import {OptionWithChankes} from "./options/OptionWithChankes";
 import {OptionSimple} from "./options/OptionSimple";
+import {OptionManyImage} from "./options/OptionManyImage";
 
 function App() {
     return (
         <>
+            <OptionManyImage/>
+            <h2>=========================</h2>
+            <h2>=========================</h2>
+            <h2>=========================</h2>
             <OptionSimple/>
-            <div>ТУТ БУДЕТ ВАРИАНТ ЗАГРУЗКИ КАРТИНОК</div>
+            <h3>ТУТ БУДЕТ ВАРИАНТ ЗАГРУЗКИ КАРТИНОК по одной</h3>
             <div>И НА БЭКЕ ЭТО РАБОТА СО СТРИМАМИ</div>
             <div>=========================</div>
             <h3> НИЖЕ это тренировал загружать большие видосы чанками</h3>

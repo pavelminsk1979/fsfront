@@ -24,7 +24,7 @@ export const OptionSimple = () => {
         formData.append('deskription', 'text,text,text');
 
         try {
-            const res = await axios.post('http://localhost:3010/stream', formData);
+            const res = await axios.post('http://localhost:3011/stream', formData);
             console.log('Файл успешно загружен!');
             console.log('УРЛ АДРЕС КАРТИНКИ', res)
         } catch (e) {
