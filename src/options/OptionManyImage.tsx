@@ -24,7 +24,10 @@ export const OptionManyImage = () => {
         // Добавляем каждый файл в formData
         Array.from(files).forEach((file) => {
             formData.append('files', file);
-            formData.append('deskription', 'text,text,text');
+            console.log('-----------------------------')
+            console.log('aaaaaaaaaaa', file)
+            console.log('-----------------------------')
+            formData.append('deskription', `text${file.name}`);
         });
 
 
