@@ -3,8 +3,10 @@ import './App.css';
 import {OptionWithChankes} from "./options/OptionWithChankes";
 import {OptionSimple} from "./options/OptionSimple";
 import {OptionManyImage} from "./options/OptionManyImage";
+import {ElementDragAndDrop} from "./options/ElementDragAndDrop";
 
 function App() {
+    console.log('77777777777777777777777777')
     return (
         <>
             <OptionManyImage/>
@@ -17,6 +19,7 @@ function App() {
             <div>=========================</div>
             <h3> НИЖЕ это тренировал загружать большие видосы чанками</h3>
             <OptionWithChankes/>
+            <ElementDragAndDrop/>
 
         </>
     )
